@@ -1,0 +1,175 @@
+/* Utility Variables */
+:root {
+  --color-overlap: rgba(22, 33, 39, .8);
+  --color-overlap-dark: rgba(9, 22, 28, .8);
+}
+ 
+/* Basic Transparency */
+:root {
+  @media not (prefers-reduced-transparency) {
+    @media not (-moz-bool-pref: "glassfox.transparency.disabled") {
+      appearance: -moz-sidebar !important;
+    }
+  }
+}
+
+/* Modular Styling */
+:root:not([windowtype="Toolkit:PictureInPicture"],
+[inDOMFullscreen]) {
+  body,
+  #browser,
+  #sidebar-main,
+  #navigator-toolbox {
+    & > *:not(#sidebar-launcher-splitter) {
+      overflow: hidden;
+    }
+  }
+  #browser {
+    margin-top: 0px;
+    background: var(--color-overlap) !important;
+    border: 0px solid transparent;
+    #sidebar-main, #tabbrowser-tabbox {
+      border: 5px solid var(--color-overlap);
+      outline: none !important;
+      #tabbrowser-tabpanels {
+        background: transparent !important;
+      }
+      #vertical-tabs {
+        padding-top: 4px
+      }
+    }
+  }
+  #navigator-toolbox {
+    mix-blend-mode: screen;
+    background: var(--color-overlap) !important;
+    padding: 6px;
+    > * {
+      background: inherit !important;
+    }
+  }
+
+/* Larger Sidebar Splitter for easier adjusting */
+#sidebar-launcher-splitter {
+  width: 8px !important;
+  background: transparent !important;
+  padding: 0px !important;
+  box-shadow: 0 0 0 0 transparent;
+  &:hover {
+    background: var(--color-overlap) !important;
+    box-shadow: 1px 1px 4px 1px var(--color-overlap-dark) !important;
+  }
+}
+
+/* Hide Scrollbars in the sidebar */
+#vertical-pinned-tabs-container,
+scrollbox  {
+    scrollbar-width: none !important;
+}
+
+/* Taller Pinned Tabs Container */
+@media (-moz-bool-pref: "glassfox.sidebar.taller-pinned-tabs") {
+  :root:not(:has(sidebar-main[expanded])) {
+    #tabbrowser-tabs {
+        height: 100% !important;
+        :has(tab) {
+            min-height: clamp(0px, 45%, 100%) !important;
+        }
+    }
+}
+
+}
+
+/* Tab styling for more visual separation */
+#tabbrowser-tabs tab {
+  .tab-background {
+    background: color-mix(in srgb, currentColor 10%, var(--bg-mixer, var(--tab-bg, transparent))) !important;
+  }
+  &[pending="true"] {
+    .tab-background {
+      --tab-bg: var(--transparent-bg-solid);
+      filter: brightness(60%);
+    }
+    .tab-icon-stack {
+      filter: sepia(80%);
+    }
+  }
+  &:hover {
+    .tab-background: {
+      --tab-bg: var(--transparent-bg-light);
+      filter: brightness(100%);
+    }
+    .tab-icon-stack {
+      filter: sepia(0);
+      scale: 1.2;
+    }
+  }
+}
+
+/* Tab sizing - Support for magnification or different sizes. */
+#tabbrowser-tabs tab {
+  @media (-moz-bool-pref: "glassfox.sidebar.magnification-enabled") {
+    @media not (-moz-bool-pref: "glassfox.sidebar.magnification.icons-only") {
+      --tab-height: var(--tab-scale);
+    }
+  }
+  --min-height: var(--tab-min-height);
+  .tab-stack {
+    --tab-min-height: calc(var(--min-height) * var(--tab-size, 1) * var(--tab-height, 1));
+    .tab-icon-stack {
+      scale: calc(var(--tab-scale, 1) * var(--tab-size, 1));
+    }
+  }
+}
+
+/* Tab Sizing */
+@media (-moz-bool-pref: "glassfox.sidebar.smaller-tabs") {
+    tab,
+    #tab-preview-panel {
+        --tab-size:.8;
+    }
+}
+
+@media (-moz-bool-pref: "glassfox.sidebar.larger-tabs") {
+    tab, 
+    #tab-preview-panel {
+        --tab-size: 1.25;
+    }
+}
+
+/* macOS Dock-like magnification for sidebar */
+@media (-moz-bool-pref: "glassfox.sidebar.magnification-enabled") and (-moz-bool-pref: "sidebar.verticalTabs") {
+  sidebar-main:not([expanded]) {
+    #vertical-tabs {
+      overflow: visible !important;
+    }
+    #tabbrowser-tabs {
+      overflow: visible clip !important;
+      width: min-content;
+      & > :has(tab) {
+        & > tab {
+          &:has(+tab+tab:hover),
+                    &:is(tab:hover+tab+tab) {
+            --tab-scale:  1.05;
+          }
+          &:has(+tab:hover),
+          &:is(tab:hover+tab) {
+            --tab-scale: 1.25;
+          }
+          &:hover {
+            --tab-scale: 1.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (-moz-bool-pref: "glassfox.sidebar.hide-new-tab-button") {
+  #tabbrowser-tabs toolbarbutton[label="New Tab"] {
+    display: none !important;
+  }
+}
+
+splitter[class*="devtools"] {
+    display: none !important;
+}
