@@ -1,0 +1,8 @@
+{
+   "modules-left": ["hyprland/workspaces"],
+   "modules-center": ["hyprland/window"],
+   "modules-right": ["clock"],
+   "clock": {
+        "format": "{:%a %b %d %y | %I:%M %p}"
+    }
+}

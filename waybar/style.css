@@ -1,0 +1,32 @@
+* {
+    font-family: "Fira Code";
+}
+
+window#waybar {
+    background-color: #1f2c37;
+    border: 0;
+}
+
+#workspaces button {
+    font-size: 12px;
+    color: #dddde9;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    background-color: #df836e;
+    color: #09161c;
+}
+
+#clock {
+    color: #dddde9;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+#window {
+    color: #dddde9;
+    font-size: 12px;
+}
