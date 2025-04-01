@@ -1,32 +1,80 @@
--- Basic settings
-vim.opt.showmatch = true
-vim.opt.ignorecase = true
-vim.opt.mouse = 'v'
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.autoindent = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.wildmode = { 'longest', 'list' }
+require("lilaf.settings")
 
--- Filetype settings
-vim.cmd [[filetype plugin indent on]]
-vim.opt.mouse = 'a'
-vim.opt.clipboard = 'unnamedplus'
-vim.cmd [[filetype plugin on]]
+local Plug = vim.fn["plug#"]
 
--- Visual settings
-vim.opt.cursorline = true
-vim.opt.ttyfast = true
+vim.call("plug#begin")
 
--- Highlight settings
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none', ctermbg = 'none' })
-vim.api.nvim_set_hl(0, 'NonText', { bg = 'none', ctermbg = 'none' })
+Plug("nvim-neo-tree/neo-tree.nvim")
+Plug("nvim-lua/plenary.nvim")
+Plug("MunifTanjim/nui.nvim")
+Plug("3rd/image.nvim")
 
--- lazy.nvim
-require("config.lazy")
+Plug("rose-pine/neovim")
 
+Plug("nvim-lualine/lualine.nvim")
+
+Plug("nvim-treesitter/nvim-treesitter")
+
+vim.call("plug#end")
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        vim.cmd("Neotree reveal right")
+        vim.cmd("wincmd h")
+
+	    vim.cmd("TSEnable highlight")
+
+        require("rose-pine").setup({
+            variant = "auto", -- auto, main, moon, or dawn
+            dark_variant = "main", -- main, moon, or dawn
+            dim_inactive_windows = false,
+            extend_background_behind_borders = true,
+
+            enable = {
+                terminal = true,
+                legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+                migrations = true, -- Handle deprecated options automatically
+            },
+
+            styles = {
+                bold = true,
+                italic = true,
+                transparency = true,
+            },
+
+            groups = {
+                border = "muted",
+                link = "iris",
+                panel = "surface",
+
+                error = "love",
+                hint = "iris",
+                info = "foam",
+                note = "pine",
+                todo = "rose",
+                warn = "gold",
+                git_add = "foam",
+                git_change = "rose",
+                git_delete = "love",
+                git_dirty = "rose",
+                git_ignore = "muted",
+                git_merge = "iris",
+                git_rename = "pine",
+                git_stage = "iris",
+                git_text = "rose",
+                git_untracked = "subtle",
+
+                h1 = "iris",
+                h2 = "foam",
+                h3 = "rose",
+                h4 = "gold",               
+                h5 = "pine",
+                h6 = "foam",
+            },
+        })
+        
+        require("lualine").setup()
+ 
+    	vim.cmd("colorscheme rose-pine")
+    end
+})
