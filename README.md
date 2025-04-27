@@ -1,2 +1,1 @@
-dwm and st are binaries because i deleted the config on accident
-config.def.h for those are coming soon trust
+not optimized for other people; this repo is for my convienience but they should work for you too.
