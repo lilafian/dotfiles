@@ -1,0 +1,39 @@
+* {
+    font-family: "Terminus";
+}
+
+window#waybar {
+    background: rgba(47, 36, 44, 0.8);
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#workspaces button {
+    font-size: 12px;
+    color: #FEF1FF;
+    padding: 0;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-right: 2px;
+    border-radius: 5px;
+    transition: 250ms;
+}
+
+#workspaces button.active {
+    background-color: #3F353D;
+    color: #EEB4B3;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#clock {
+    color: #FEF1FF;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+#window {
+    color: #FEF1FF;
+    font-size: 12px;
+}
