@@ -104,5 +104,30 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias relsh="clear && exec zsh"
+ 
+export MAN_PAGER="nvim +Man!"
 
-btwfetch
+
+# make sure the repo is located at ~/misc/dotfiles!!!
+function updatedots() {
+    cp -v ~/.zshrc ~/misc/dotfiles
+
+    cp -v ~/.xinitrc ~/misc/dotfiles/x
+    
+    cp -v ~/.config/i3/config ~/misc/dotfiles/x/i3
+    cp -v ~/.config/i3/i3status.conf ~/misc/dotfiles/x/i3
+
+    cp -v ~/cloned/st/config.h ~/misc/dotfiles/x/st
+
+    cp -v ~/.config/nvim/init.lua ~/misc/dotfiles/nvim
+    cp -v ~/.config/nvim/lua/lilaf/settings.lua ~/misc/dotfiles/nvim/lua/lilaf
+    
+    cp -v ~/.config/fuzzel/fuzzel.ini ~/misc/dotfiles/wayland/fuzzel
+
+    cp -v ~/.config/hypr/hyprland.conf ~/misc/dotfiles/wayland/hypr
+    cp -v ~/.config/hypr/hyprpaper.conf ~/misc/dotfiles/wayland/hypr
+    cp -v ~/.config/hypr/togglebar.sh ~/misc/dotfiles/wayland/hypr
+
+    cp -v ~/.config/waybar/config.jsonc ~/misc/dotfiles/wayland/waybar
+    cp -v ~/.config/waybar/style.css ~/misc/dotfiles/wayland/waybar
+}
