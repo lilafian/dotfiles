@@ -1,0 +1,4 @@
+Welcome to your new system! Please complete the following steps to complete setup:
+
+- Start Neovim and run :PlugInstall to install all plugins.
+- Start LibreWolf and customize the settings to your liking

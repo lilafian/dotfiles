@@ -1,1 +1,4 @@
-not optimized for other people; this repo is for my convienience but they should work for you too.
+# Dotfiles
+These are ***NOT STABLE*** and will change between DEs and WMs by default!
+
+Use `sh install.sh [x/wayland]` to install the dots
