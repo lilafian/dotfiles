@@ -39,6 +39,17 @@ else
 fi
 
 # universal things
+echo "Creating home directory structure"
+mkdir -p ~/projects
+mkdir -p ~/forks
+mkdir -p ~/cloned
+mkdir -p ~/misc
+mkdir -p ~/media/images
+
+echo "Moving wallpaper and lockscreen to ~/media/images"
+cp -v $REPO_DIR/wall2-rosepine.jpg ~/media/images
+cp -v $REPO_DIR/lock.png ~/media/images
+
 echo "Copying .zshrc file to home directory"
 cp -v $REPO_DIR/.zshrc ~
 
