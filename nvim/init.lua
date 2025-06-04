@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
         })
         
         require("lualine").setup()
- 
+
     	vim.cmd("colorscheme rose-pine")
     end
 })

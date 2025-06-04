@@ -74,8 +74,8 @@ makepkg -si
 cd ..
 rm -rf yay-bin
 
-echo "Installing LibreWolf"
-yay -S librewolf-bin
+echo "Installing qutebrowser"
+sudo pacman -S qutebrowser
 
 echo "Installing st"
 git clone https://git.suckless.org/st
@@ -84,6 +84,9 @@ cp -v $REPO_DIR/x/st/config.h .
 sudo make clean install
 cd ..
 rm -rf st
+
+echo "Installing zoxide"
+sudo pacman -S zoxide fzf
 
 # display finished message
 cat $REPO_DIR/post_install.txt | less

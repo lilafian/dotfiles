@@ -131,3 +131,5 @@ function updatedots() {
     cp -v ~/.config/waybar/config.jsonc ~/misc/dotfiles/wayland/waybar
     cp -v ~/.config/waybar/style.css ~/misc/dotfiles/wayland/waybar
 }
+
+eval "$(zoxide init --cmd cd zsh)"
