@@ -67,6 +67,7 @@ update_dots() {
     mkdir -p $DOTS_PATH/vesktop/settings
     cp -rv ~/.config/vesktop/settings.json $DOTS_PATH/vesktop
     cp -rv ~/.config/vesktop/settings/settings.json $DOTS_PATH/vesktop/settings
+    cp -rv ~/.config/mako $DOTS_PATH
 }
 
 update_zsh_drvses_integration() {

@@ -21,6 +21,7 @@ drvses       Install the drive session manager (DrvSes) and shell integration
 fonts        Install nerd fonts
 fuzzel       Install the app launcher (Fuzzel) and configuration
 hyprland     Install the WM/compositor (Hyprland) and configuration
+mako         Install the notification daemon (Mako) and configuration
 nvim         Install the code editor (Neovim) and configuration
 vesktop      Install the internet messenger (Vesktop/Discord) and configuration
 wallpapers   Install the default wallpapers (located in ~/.local/share/lilafdots/wallpapers)
@@ -43,7 +44,7 @@ if [ -z "$MODULE_SELECTION" ]; then
 fi
 
 if [[ "$MODULE_SELECTION" == "all" ]]; then
-    MODULE_SELECTION="alacritty,drvses,fonts,fuzzel,hyprland,nvim,vesktop,wallpapers,waybar,yay,yazi,zen,zsh"
+    MODULE_SELECTION="alacritty,drvses,fonts,fuzzel,hyprland,mako,nvim,vesktop,wallpapers,waybar,yay,yazi,zen,zsh"
 fi
 
 IFS="," read -ra MODULES <<< "$MODULE_SELECTION"

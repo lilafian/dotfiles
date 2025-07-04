@@ -1,0 +1,17 @@
+max-history=5
+sort=-time
+font=ZedMono Nerd Font
+background-color=#151515FF
+border-size=0
+border-radius=5
+outer-margin=20
+padding=10
+progress-color=source #FFFFFFFF
+icons=1
+icon-border-radius=5
+anchor=top-right
+default-timeout=10000
+layer=overlay
+
+[urgency=critical]
+text-color=#FFAAAAFF
