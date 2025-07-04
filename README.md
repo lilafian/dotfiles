@@ -21,3 +21,16 @@ zen          Install the web browser (Zen)
 zsh          Install the shell (Zsh), configuration, and utilities
 ```
 The installers for each module are located in `installers`. You can use custom modules (for forks) by just adding them to the list above in the `install.sh` script and adding a corresponding script in `installers`. There is no check for module existence, but it will fail gracefully if a module installer is not found.
+
+## Hyprland essential keybinds
+You can find more keybinds in `~/.config/hypr/hyprland.conf`.
+- Super+A: Open terminal
+- Super+W: Open browser
+- Super+R: Open application launcher
+- Super+Alt+Shift+W: Switch wallpaper
+- Super+F: Float window
+- Super+Arrow: Move focus
+- Super+S: Swap split side
+- Super+D: Swap split direction
+- Super+LeftClickDrag: Move floating window
+- Super+RightClickDrag: Resize window
