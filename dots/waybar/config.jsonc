@@ -1,0 +1,40 @@
+{
+    "position": "top",
+    "height": 25,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window",
+        "custom/media"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "battery",
+        "clock"
+    ],
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-top": 10,
+    "clock": {
+        "interval": 1,
+        "format": "{:%a %m/%d %I:%M:%S %p}"
+    },
+    "hyprland/window": {
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 16,
+        "format": "{title}"
+    },
+    "pulseaudio": {
+        "format": "{volume}% vol"
+    },
+    "battery": {
+        "format": "{capacity}% bat"
+    },
+    "custom/media": {
+        "format": "{}",
+        "exec": "~/.config/waybar/media.sh",
+        "interval": 1
+    }
+}

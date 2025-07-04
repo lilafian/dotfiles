@@ -1,0 +1,16 @@
+[general]
+live_config_reload = true
+
+[font]
+normal = { family = "ZedMono Nerd Font" }
+
+[window]
+padding = { x = 5, y = 5 }
+opacity = 1
+
+[colors.primary]
+foreground = "#cccccc"
+background = "#151515" # dark
+
+[colors.normal]
+cyan = "#ffffff" # primary

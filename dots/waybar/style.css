@@ -1,0 +1,40 @@
+* {
+    font-family: "ZedMono Nerd Font";
+    font-size: 14px;
+    margin: 0;
+}
+
+window#waybar {
+    background-color: #151515;
+    color: white;
+    border-radius: 5px;
+}
+
+#workspaces {
+    margin-left: 10px;
+}
+
+#clock {
+    margin-right: 10px;
+}
+
+#battery, #pulseaudio, #window {
+    margin-right: 25px;
+}
+
+window#waybar.empty #window {
+    margin: 0;
+}
+
+#workspaces button { /* inactive */
+    transition: color 0.25s;
+    transition: border 0.25s;
+    color: #454545;
+    padding: 2px;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: white;
+    border-bottom: 3px solid white;
+}

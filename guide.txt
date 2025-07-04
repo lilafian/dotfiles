@@ -1,0 +1,59 @@
+Full installation guide
+
+1. Install Arch Linux
+	Follow the official Arch Linux installation guide and install GRUB as the bootloader.
+	Make sure to add neovim, sudo, and dhcpcd in the pacstrap command.
+	Get to a point where you can log in as root
+
+2. Start dhcpcd
+	We need a DHCP client to connect to the internet to install packages. Run the following command to enable and start dhcpcd.
+		systemctl enable --now dhcpcd
+	If you need WiFi, also use the iwctl utility to connect.
+
+3. Create user
+	Run the following command, substituting <USERNAME> with your desired username
+		useradd -m -G wheel -s /bin/zsh <USERNAME>
+	Then, give the user a password by running
+		passwd <USERNAME>
+
+4. Install Z Shell
+	Run the following command to install Z Shell so that we can log in as the correct user
+		pacman -S zsh
+
+5. Correct sudo configuration file
+	Edit /etc/sudoers with neovim and uncomment the following line:
+		%wheel ALL=(ALL:ALL) ALL
+	Additionally, I prefer to add the following line to show asterisks in place of password characters
+		Defaults pwfeedback
+	This line can go anywhere in the file.
+
+6. Log in as a standard user
+	Exit your root session, then log in with the username and password you created in step 3.
+
+7. Install Oh My Zsh
+	Run the following commands:
+		pacman -S --needed git base-devel
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+8. (NVIDIA ONLY) Install and fix NVIDIA drivers
+	NVIDIA does not work out of the box with Wayland, and therefore Hyprland. We must install and fix the NVIDIA drivers.
+	Follow the official Hyprland NVIDIA guide at:
+		wiki.hypr.land/Nvidia
+	And then go to step 9.
+
+9. Run the install script
+	Now, you can run the install script and let it do the work for you!
+
+10. (If you installed it, configure Zen
+    To get the best browser experience, I recommend adding two Zen mods, accessible from:
+        about:preferences#zenMarketplace
+    First, add Custom uiFont, and set:
+        Select Font -> Custom
+        font-family: ZedMono Nerd Font
+        text-shadow: none
+    Then, add Transparent Zen, and set:
+        Allow transparency -> False
+        Allow transparency on linux -> False
+        Enable custom background color for Zen -> True
+        Set custom background color -> #151515
+    Then, customize all other settings to your liking (especially in Privacy and Security!)

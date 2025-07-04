@@ -1,0 +1,5 @@
+Install complete!
+
+If you installed the full profile, you can start Hyprland using the "Hyprland" command (including the capital H)!
+
+To exit this screen, press Q.
