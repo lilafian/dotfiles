@@ -14,6 +14,6 @@ nvim +'PlugInstall --sync' +qa
 echo "Installed Neovim plugins!"
 
 echo "Installing LSP for Python, C, C++, and JavaScript..."
-sudo pacman -S --needed pyright clang clangd typescript-language-server
+sudo pacman -S --needed pyright clang typescript-language-server
 echo "Installed LSP!"
 echo "Installed Neovim!"
