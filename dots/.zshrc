@@ -35,10 +35,6 @@ export LANG=en_US.UTF-8
 export EDITOR="nvim"
 export SUDOEDITOR="nvim"
 
-if ! [ "$IS_DRVSES" = "1" ]; then
-    fortune | cowsay -f tux
-fi
-
 drvses_status() {
   if [ "$IS_DRVSES" = "1" ]; then
       echo "DrvSes($DRVSES_DRIVE)"
@@ -78,5 +74,69 @@ reload_shell() {
     clear
     exec zsh
 }
+
+age() {
+    unit=$1
+    if [ -z "$unit" ]; then
+        unit="full"
+    fi
+    if [[ "$unit" == "days" ]]; then
+        if [[ -z "$AGE_DAYS_OVERRIDE" ]]; then
+            echo -n $(( ( $(date +%s) - $(date -d "$(stat / | awk '/Birth: /{print $2 " " substr($3,1,8)}')" +%s) ) / 86400 ))
+        else
+            echo -n "$AGE_DAYS_OVERRIDE"
+        fi
+    elif [[ "$unit" == "months" ]]; then
+        echo -n $(($(age days) / 30))
+    elif [[ "$unit" == "years" ]]; then
+        echo -n $(($(age days) / 365))
+    elif [[ "$unit" == "full" ]]; then
+        total_days=$(age days)
+        years=$(( total_days / 365 ))
+        rem_days=$(( total_days % 365 ))
+        months=$(( rem_days / 30 ))
+        days=$(( rem_days % 30 ))
+        
+        if [[ "${years}" != 0 ]]; then
+            echo -n "${years} years, ${months} months, ${days} days"
+        elif [[ "${months}" != 0 ]]; then
+            echo -n "${months} months, ${days} days"
+        elif [[ "${days}" == 1 ]]; then
+            echo -n "$(age days) day"
+        else
+            echo -n "$(age days) days"
+        fi
+    else
+        echo -n "Unknown unit: $unit"
+    fi
+}
+
+osname() {
+    OSNAME=$(cat /etc/os-release | head -n2 | tail -n1 | cut -c14- | rev | cut -c2- | rev)
+    OSCOLOR=$(cat /etc/os-release | head -n5 | tail -n1 | cut -c13- | rev | cut -c2- | rev)
+
+    echo "\e[${OSCOLOR}m${OSNAME}\e[0m"
+
+}
+
+minfo() {
+    echo "Using $(osname)"
+    echo -n "System is "
+    age | lolcat --force
+    echo " old"
+}
+
+shell_start_display() {
+    paste <(fortune | cowsay -f tux) <(echo "\n$(minfo)") | column -s $'\t' -t
+}
+
+sync_wall_limine() {
+    USERHOMENOTROOT=$HOME
+    sudo cp "$USERHOMENOTROOT/.local/share/lilafdots/wallpapers/$1.png" /boot/limine-wall.png
+}
+
+if ! [ "$IS_DRVSES" = "1" ]; then
+    shell_start_display
+fi
 
 eval "$(zoxide init zsh --cmd cd)"
