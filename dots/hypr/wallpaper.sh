@@ -1,6 +1,6 @@
 SYNC_LIMINE=$1
 
-WALLPAPER_NAME=$(cd ~/.local/share/lilafdots/wallpapers; sh ~/.config/hypr/fzf_ubzg.sh)
+WALLPAPER_NAME=$(cd ~/.local/share/lilafdots/wallpapers; sh ~/.config/hypr/fzf_ubzg.sh | cut -c48-) # YOU HAVE TO CUT 47 CHARACTERS BECAUSE OF UEBERZUGPP IDK WHY
 
 if [ -z "$WALLPAPER_NAME" ]; then
     exit
