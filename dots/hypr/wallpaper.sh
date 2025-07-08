@@ -1,6 +1,6 @@
 SYNC_LIMINE=$1
 
-WALLPAPER_NAME=$(cd ~/.local/share/lilafdots/wallpapers; fzf --preview "catimg -w 90 {}")
+WALLPAPER_NAME=$(cd ~/.local/share/lilafdots/wallpapers; sh ~/.config/hypr/fzf_ubzg.sh)
 
 if [ -z "$WALLPAPER_NAME" ]; then
     exit
