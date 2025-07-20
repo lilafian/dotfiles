@@ -135,6 +135,20 @@ sync_wall_limine() {
     sudo cp "$USERHOMENOTROOT/.local/share/lilafdots/wallpapers/$1.png" /boot/limine-wall.png
 }
 
+create_iso_usb(){
+    if [ -z "$1" ]; then
+        echo "First arg needs to be the iso"
+        SHOULD_EXIT_ISO=1
+    fi
+    if [ -z "$1"]; then
+        SHOULD_EXIT_ISO=1
+    fi
+    if [[ "$SHOULD_EXIT_ISO" == 1 ]]; then
+        exit
+    fi
+    sudo dd bs=4M if=$1 of=$2 conv=fsync oflag=direct
+}
+
 if ! [ "$IS_DRVSES" = "1" ]; then
     shell_start_display
 fi

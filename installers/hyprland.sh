@@ -7,5 +7,10 @@ cd ueberzugpp
 makepkg -si
 cd ..
 rm -rf ueberzugpp
+git clone https://aur.archlinux.org/wlogout.git
+cd wlogout
+makepkg -si
+cd ..
+rm -rf wlogout
 cp -rv $REPO_DIR/dots/hypr ~/.config
 echo "Installed Hyprland!"
