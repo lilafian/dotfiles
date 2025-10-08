@@ -1,3 +1,6 @@
+>[!NOTE]
+> these are old and need to be updated (but usable)! this branch will be separated once i update so that these can be accessed as well as the new ones.
+
 # lilaf's dotfiles
 These are my modular dotfiles for Hyprland, Zsh, and some other things. You can choose a list of modules, or install the full dots.
 
