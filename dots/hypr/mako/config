@@ -1,0 +1,10 @@
+font=IosevkaTerm Nerd Font 12
+background-color=#282828cc
+text-color=#ebdbb2ff
+padding=15
+border-color=#ebdbb2ff
+progress-color=source #fb4934ff
+
+[urgency=critical]
+border-color=#fb3934ff
+background-color=#282828ff

@@ -1,0 +1,5 @@
+Install complete!
+
+If you installed the Hyprland module, use the "hyprland" command.
+
+To exit this screen, press Q.
