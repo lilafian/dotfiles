@@ -49,6 +49,10 @@ function updatedots() {
 
     # mako
     cp -rv ~/.config/mako $DOTSDIR
+
+    # librewolf
+    mkdir -p $DOTSDIR/librewolf
+    cp -v ~/.librewolf/*-default/chrome/userChrome.css $DOTSDIR/librewolf
 }
 
 # maybe use this idk
