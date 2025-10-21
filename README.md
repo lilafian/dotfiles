@@ -1,11 +1,11 @@
 # LilafDots v2
 These are my modular dotfiles for the following:
-alacritty
-fonts
-hyprland
-nvim
-wallpapers
-zsh
+* alacritty
+* fonts
+* hyprland
+* nvim
+* wallpapers
+* zsh
 
 Provided is a quick install script that installs any combination of the modules above, as well as a quick installer for Yay to get a system up and running.
 
