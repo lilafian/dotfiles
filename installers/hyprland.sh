@@ -6,6 +6,7 @@ echo " -- [hyprland]: copying hyprland and hyprpaper configuration to ~/.config"
 mkdir -pv ~/.config/hypr
 cp -rv $REPO_DIR/dots/hypr/hyprland.conf ~/.config/hypr
 cp -rv $REPO_DIR/dots/hypr/hyprpaper.conf ~/.config/hypr
+cp -rv $REPO_DIR/dots/hypr/volume.sh ~/.config/hypr
 
 echo " -- [hyprland]: installing fuzzel package"
 sudo pacman -S --needed fuzzel
