@@ -1,0 +1,14 @@
+font=Ubuntu Nerd Font
+
+background-color=#3b4252ff
+text-color=#eceff4ff
+border-color=#5e81acff
+
+outer-margin=40
+
+padding=15
+
+border-size=1
+
+default-timeout=5000
+ignore-timeout=1
